@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>María José Rojas Ruiz | Portafolio</title>
+<meta name="description" content="Portafolio de María José Rojas Ruiz, estudiante de último semestre de Ingeniería de Sistemas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+/* ============ 1. COLORES (edita aquí tu paleta) ============ */
+:root{
+  --bg:#0a1020; --surface:rgba(255,255,255,.05); --line:rgba(255,255,255,.12);
+  --text:#eef2fb; --muted:#a3adc4; --accent:#4fe3cf; --accent-ink:#06201c; --warm:#ff9a8b;
+  --font-title:'Fraunces',Georgia,serif; --font-body:'Manrope',Arial,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f4f7fc; --surface:rgba(10,16,32,.04); --line:rgba(10,16,32,.14);
+  --text:#0d1428; --muted:#4a556e; --accent:#0b7a6e; --accent-ink:#ffffff; --warm:#c2410c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.7 var(--font-body);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-title);line-height:1.1;font-weight:700}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:2rem}
+section{padding:6rem 1.5rem;max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.glass{background:var(--surface);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit;font-size:1rem}
+.btn.solid{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:var(--accent);color:var(--accent-ink)}
+
+/* ============ 2. NAVEGACIÓN ============ */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{max-width:1080px;margin:0 auto;padding:.8rem 1.5rem;display:flex;align-items:center;gap:1.5rem}
+.brand{font-family:var(--font-title);font-weight:700;font-size:1.3rem;text-decoration:none;margin-right:auto}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:1.4rem;list-style:none}
+.links a{text-decoration:none;color:var(--muted);font-weight:500;}
+.links a:hover{color:var(--accent)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);padding:.45rem .75rem;font:700 .8rem var(--font-body);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.links a.cvlink{color:var(--accent);font-weight:700}
+.icon-btn{background:none;border:1px solid var(--line);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem}
+#menu{display:none}
+
+/* ============ 3. HERO ============ */
+#inicio{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+#inicio h1{font-size:clamp(2.8rem,10vw,6.5rem);letter-spacing:-.03em;font-weight:500}
+#inicio h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.typed{font:500 clamp(1rem,2.6vw,1.4rem) var(--font-body);margin:1.5rem 0 .6rem;min-height:2rem;color:var(--warm)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.phrase{max-width:34rem;color:var(--muted);font-size:1.1rem;margin-bottom:2rem}
+.cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+.timeline{border-left:2px solid var(--line);margin-left:.6rem;padding-left:2rem;display:grid;gap:2rem}
+
+/* ============ 4. SOBRE MÍ + TERMINAL ============ */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.about p{color:var(--muted);margin-bottom:1rem;max-width:34rem}
+.term{font:.9rem/1.8 'JetBrains Mono',monospace;padding:0;overflow:hidden}
+.term .bar{padding:.6rem 1rem;border-bottom:1px solid var(--line);display:flex;gap:.4rem}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:var(--warm);opacity:.8}
+.term .bar i:nth-child(2){background:#f5d36b}.term .bar i:nth-child(3){background:var(--accent)}
+.term pre{padding:1.2rem;white-space:pre-wrap;color:var(--text)}
+.k{color:var(--accent)}.s{color:var(--warm)}.c{color:var(--muted)}
+
+/* ============ 5. HABILIDADES ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.card{padding:1.6rem}
+.card h3{font-size:1.25rem;margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{padding:.3rem .85rem;border:1px solid var(--line);border-radius:999px;font-size:.88rem;color:var(--text);background:var(--surface);}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ============ 6. LÍNEA DE TIEMPO ============ */
+.job{position:relative}
+.job::before{content:"";position:absolute;left:-2.55rem;top:.55rem;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 25%,transparent)}
+.job time{color:var(--warm);font-weight:700;font-size:.9rem}
+.job h3{font-size:1.3rem;margin:.2rem 0}
+.job .co{color:var(--muted);margin-bottom:.6rem}
+.job ul{padding-left:1.1rem;color:var(--muted)}
+
+/* ============ 8. EDUCACIÓN ============ */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.edu li{list-style:none;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.edu li:last-child{border:0}
+.edu small{display:block;color:var(--muted)}
+
+/* ============ 9. CONTACTO ============ */
+.contact{max-width:520px}
+.social{display:grid;gap:.8rem;align-content:start}
+.social a{padding:1rem 1.2rem;text-decoration:none;}
+.social a:hover{border-color:var(--accent)}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;position:relative;z-index:1}
+
+/* ============ 10. EFECTOS ============ */
+
+/* ============ 11. RESPONSIVE ============ */
+@media (max-width:820px){
+  .about{grid-template-columns:1fr}
+  #menu{display:inline-block}
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  .links.open{display:flex}
+  .links a{display:block;padding:1rem 1.5rem}
+  section{padding:4.5rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav aria-label="Principal">
+    <a class="brand" href="#inicio">MJ<span>.</span></a>
+    <ul class="links" id="links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a class="cvlink" id="cvTop" href="hoja-de-vida.pdf" download>Hoja de vida</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-l="es" aria-pressed="true">ES</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="icon-btn" id="theme" aria-label="Cambiar entre modo claro y oscuro">☀</button>
+    <button class="icon-btn" id="menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+</header>
+
+<main>
+<!-- INICIO: cambia tu nombre, título y frase aquí -->
+<section id="inicio">
+  <h1>María José <em>Rojas Ruiz</em></h1>
+  <p class="typed" aria-live="polite"><span id="typed">Ingeniera de Sistemas</span><span class="caret"></span></p>
+  <p class="phrase">Responsabilidad, disciplina y vocación de servicio aplicadas a la tecnología y la atención al público.</p>
+  <div class="cta">
+    <a class="btn solid" href="#experiencia">Ver experiencia</a>
+    <a class="btn ghost" href="#contacto">Contacto</a>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <h2>Sobre mí</h2>
+  <div class="about">
+    <div>
+      <p>Estudiante de último semestre de Ingeniería de Sistemas con más de cinco años de experiencia en tutorías y docencia, y trayectoria en atención al público y manejo de caja. Su formación en programación web e inteligencia artificial complementa un perfil orientado al orden, la comunicación clara y el servicio.</p>
+      <p>Se caracteriza por su responsabilidad, empatía y compromiso, y mantiene un buen desempeño académico con disposición permanente para aprender y desarrollar nuevas habilidades.</p>
+    </div>
+    <!-- Terminal decorativa: edita los datos dentro de <pre> -->
+    <div class="term glass" role="img" aria-label="Terminal decorativa con un resumen de mi perfil">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="c">// perfil.js</span>
+<span class="k">const</span> mariaJose = {
+  rol: <span class="s">"Ingeniería de Sistemas"</span>,
+  enfoque: [<span class="s">"atención al cliente"</span>, <span class="s">"web"</span>, <span class="s">"IA"</span>],
+  idiomas: [<span class="s">"Español"</span>, <span class="s">"Inglés intermedio"</span>],
+  aprendiendo: <span class="k">true</span>
+};
+<span class="c">// disponible para nuevas oportunidades</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES: agrega o quita chips copiando una línea <span class="chip"> -->
+<section id="habilidades">
+  <h2>Habilidades</h2>
+  <div class="grid">
+    <div class="card glass"><h3>Desarrollo web</h3><div class="chips">
+      <span class="chip">Programación web</span><span class="chip">Desarrollo de páginas</span><span class="chip">HTML y CSS</span></div></div>
+    <div class="card glass"><h3>Tecnología</h3><div class="chips">
+      <span class="chip">Ciberseguridad básica</span><span class="chip">Fundamentos de IA</span></div></div>
+    <div class="card glass"><h3>Herramientas</h3><div class="chips">
+      <span class="chip">Herramientas Microsoft</span><span class="chip">Atención al cliente</span><span class="chip">Manejo de caja</span></div></div>
+    <div class="card glass"><h3>Habilidades blandas</h3><div class="chips">
+      <span class="chip">Comunicación</span><span class="chip">Trabajo en equipo</span><span class="chip">Liderazgo</span><span class="chip">Empatía</span></div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA: copia un bloque <div class="job"> para agregar más -->
+<section id="experiencia">
+  <h2>Experiencia</h2>
+  <div class="timeline">
+    <div class="job"><time>Enero 2021 – Actualidad</time><h3>Tutora académica</h3><p class="co">Independiente</p>
+      <ul><li>Brindé asesorías personalizadas a estudiantes de distintas edades, adaptando la enseñanza a cada uno.</li><li>Fomenté la comprensión de los temas y la motivación por aprender.</li></ul></div>
+    <div class="job"><time>Febrero 2023 – Enero 2025</time><h3>Docente de inglés</h3><p class="co">English on Time</p>
+      <ul><li>Apoyé el desarrollo de clases y actividades pedagógicas.</li></ul></div>
+    <div class="job"><time>2025</time><h3>Servicio al cliente y manejo de caja</h3><p class="co">Miscelánea y Papelería Cecilia</p>
+      <ul><li>Atendí al público y gestioné la caja y el corresponsal bancario.</li><li>Organicé el área de trabajo y apoyé las tareas diarias del negocio.</li></ul></div>
+  </div>
+</section>
+
+<!-- EDUCACIÓN -->
+<section id="educacion">
+  <h2>Educación y cursos</h2>
+  <div class="edu">
+    <ul class="card glass">
+      <li>Ingeniería de Sistemas<small>UNICIENCIA · 2022 – Actualidad (último semestre)</small></li>
+      <li>Diplomado en Modelos de Negocios Aplicando IA<small>Red Ruedo · 2025 · Finalizado (certificado en trámite)</small></li>
+      <li>Bachiller Académico<small>Colegio Psicopedagógico Carl Rogers · 2022</small></li>
+    </ul>
+    <ul class="card glass">
+      <li>Conceptualización del lenguaje de programación C++<small>SENA · 2026</small></li>
+      <li>Elementos de la IA<small>Universidad de Helsinki · 2025</small></li>
+      <li>Programación Web<small>Talento Tech, Ministerio TIC · 2024</small></li>
+      <li>Charla de ciberseguridad como expositora<small>Zurich Seguros · Julio 2025</small></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <div class="contact">
+    <div class="social">
+      <a class="glass" href="mailto:lmsa226127@gmail.com">Correo: lmsa226127@gmail.com</a>
+      <a class="glass" href="tel:+573151522227">Teléfono: 315 152 2227</a>
+      <a class="glass" href="http://www.linkedin.com/in/maria-rojas-ruiz" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="glass" href="https://github.com/MJL622" target="_blank" rel="noopener">GitHub</a>
+      <!-- Cambia el enlace por la ruta de tu PDF, por ejemplo "hoja-de-vida.pdf" -->
+      <a class="btn solid" id="cvBottom" href="hoja-de-vida.pdf" download>Descargar hoja de vida (PDF)</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>© 2026 María José Rojas Ruiz.</footer>
+
+<script>
+/* ---- Tema claro/oscuro ---- */
+const root=document.documentElement,tb=document.getElementById('theme');
+try{const t=localStorage.getItem('tema');if(t)root.dataset.theme=t}catch(e){}
+const setIcon=()=>tb.textContent=root.dataset.theme==='dark'?'☀':'☾';setIcon();
+tb.onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('tema',root.dataset.theme)}catch(e){}setIcon()};
+
+/* ---- Menú móvil ---- */
+const menu=document.getElementById('menu'),links=document.getElementById('links');
+menu.onclick=()=>{const o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)};
+links.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded',false)});
+
+/* ============ IDIOMA: español / inglés ============ */
+/* Para agregar o corregir una traducción, edita la lista EN (texto en español: texto en inglés). */
+const EN={
+"Sobre mí": "About me",
+"Habilidades": "Skills",
+"Experiencia": "Experience",
+"Educación": "Education",
+"Contacto": "Contact",
+"Hoja de vida": "Resume",
+"Responsabilidad, disciplina y vocación de servicio aplicadas a la tecnología y la atención al público.": "Responsibility, discipline and a service-oriented mindset applied to technology and customer service.",
+"Ver experiencia": "View experience",
+"Estudiante de último semestre de Ingeniería de Sistemas con más de cinco años de experiencia en tutorías y docencia, y trayectoria en atención al público y manejo de caja. Su formación en programación web e inteligencia artificial complementa un perfil orientado al orden, la comunicación clara y el servicio.": "Final-semester Systems Engineering student with more than five years of experience in tutoring and teaching, and a background in customer service and cash handling. Training in web programming and artificial intelligence complements a profile focused on organization, clear communication and service.",
+"Se caracteriza por su responsabilidad, empatía y compromiso, y mantiene un buen desempeño académico con disposición permanente para aprender y desarrollar nuevas habilidades.": "Known for responsibility, empathy and commitment, with strong academic performance and a constant willingness to learn and develop new skills.",
+"\"Ingeniería de Sistemas\"": "\"Systems Engineering\"",
+"\"atención al cliente\"": "\"customer service\"",
+"\"IA\"": "\"AI\"",
+"\"Español\"": "\"Spanish\"",
+"\"Inglés intermedio\"": "\"Intermediate English\"",
+"// disponible para nuevas oportunidades": "// available for new opportunities",
+"Desarrollo web": "Web development",
+"Tecnología": "Technology",
+"Herramientas": "Tools",
+"Habilidades blandas": "Soft skills",
+"Programación web": "Web programming",
+"Desarrollo de páginas": "Website development",
+"HTML y CSS": "HTML and CSS",
+"Ciberseguridad básica": "Basic cybersecurity",
+"Fundamentos de IA": "AI fundamentals",
+"Herramientas Microsoft": "Microsoft tools",
+"Atención al cliente": "Customer service",
+"Manejo de caja": "Cash handling",
+"Comunicación": "Communication",
+"Trabajo en equipo": "Teamwork",
+"Liderazgo": "Leadership",
+"Empatía": "Empathy",
+"Enero 2021 – Actualidad": "January 2021 – Present",
+"Tutora académica": "Academic tutor",
+"Independiente": "Independent",
+"Brindé asesorías personalizadas a estudiantes de distintas edades, adaptando la enseñanza a cada uno.": "Provided personalized tutoring to students of different ages, adapting instruction to each one.",
+"Fomenté la comprensión de los temas y la motivación por aprender.": "Encouraged understanding of the subjects and motivation to learn.",
+"Febrero 2023 – Enero 2025": "February 2023 – January 2025",
+"Docente de inglés": "English teacher",
+"Apoyé el desarrollo de clases y actividades pedagógicas.": "Supported the development of classes and teaching activities.",
+"Servicio al cliente y manejo de caja": "Customer service and cash handling",
+"Atendí al público y gestioné la caja y el corresponsal bancario.": "Served customers and handled the cash register and banking correspondent services.",
+"Organicé el área de trabajo y apoyé las tareas diarias del negocio.": "Kept the work area organized and supported the business’s daily tasks.",
+"Educación y cursos": "Education and courses",
+"Ingeniería de Sistemas": "Systems Engineering",
+"UNICIENCIA · 2022 – Actualidad (último semestre)": "UNICIENCIA · 2022 – Present (final semester)",
+"Red Ruedo · 2025 · Finalizado (certificado en trámite)": "Red Ruedo · 2025 · Completed (certificate pending)",
+"Diplomado en Modelos de Negocios Aplicando IA": "Diploma in Business Models Applying AI",
+"Bachiller Académico": "High School Diploma (Academic)",
+"Programación Web": "Web Programming",
+"Conceptualización del lenguaje de programación C++": "Conceptualization of the C++ programming language",
+"Universidad de Helsinki · 2025": "University of Helsinki · 2025",
+"Talento Tech, Ministerio TIC · 2024": "Talento Tech, Ministry of ICT (MinTIC) · 2024",
+"Elementos de la IA": "Elements of AI",
+"Universidad de Helsinki": "University of Helsinki",
+"Charla de ciberseguridad como expositora": "Cybersecurity talk (speaker)",
+"Zurich Seguros · Julio 2025": "Zurich Seguros · July 2025",
+"Correo: lmsa226127@gmail.com": "Email: lmsa226127@gmail.com",
+"Teléfono: 315 152 2227": "Phone: 315 152 2227",
+"Descargar hoja de vida (PDF)": "Download resume (PDF)"
+};
+/* Frases que se escriben solas en cada idioma */
+const FR={es:['Ingeniera de Sistemas','Docente y tutora','Atención al cliente y desarrollo web'],
+          en:['Systems Engineer','Teacher and tutor','Customer service and web development']};
+/* Archivos de la hoja de vida: guarda tus dos PDF con estos nombres junto a index.html */
+const CV={es:'hoja-de-vida.pdf',en:'resume-en.pdf'};
+
+const nodes=[],tw=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+while(tw.nextNode()){const n=tw.currentNode,t=n.nodeValue.trim();if(t&&Object.prototype.hasOwnProperty.call(EN,t))nodes.push([n,n.nodeValue,t])}
+const attrs=[['#theme','aria-label','Cambiar entre modo claro y oscuro','Switch between light and dark mode'],
+  ['#menu','aria-label','Abrir menú','Open menu'],['nav','aria-label','Principal','Main'],
+  ['.term','aria-label','Terminal decorativa con un resumen de mi perfil','Decorative terminal with a summary of my profile']];
+
+/* ---- Efecto de escritura del título ---- */
+const el=document.getElementById('typed');
+let lang='es',frases=FR.es,f=0,c=0,del=false,tm;
+function type(){
+  const t=frases[f];c+=del?-1:1;el.textContent=t.slice(0,c);
+  let d=del?35:70;
+  if(!del&&c===t.length){del=true;d=1400}
+  else if(del&&c===0){del=false;f=(f+1)%frases.length;d=300}
+  tm=setTimeout(type,d);
+}
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  nodes.forEach(([n,o,t])=>{n.nodeValue=l==='en'?o.replace(t,EN[t]):o});
+  attrs.forEach(([q,a,es,en])=>{const x=document.querySelector(q);if(x)x.setAttribute(a,l==='en'?en:es)});
+  document.getElementById('cvTop').href=document.getElementById('cvBottom').href=CV[l];
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
+  document.title=l==='en'?'María José Rojas Ruiz | Portfolio':'María José Rojas Ruiz | Portafolio';
+  try{localStorage.setItem('idioma',l)}catch(e){}
+  clearTimeout(tm);frases=FR[l];f=0;c=0;del=false;
+  type();
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+let saved='es';try{saved=localStorage.getItem('idioma')||(navigator.language||'es').slice(0,2)}catch(e){}
+setLang(saved==='en'?'en':'es');
+</script>
+</body>
+</html>
