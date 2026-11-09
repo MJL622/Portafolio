@@ -306,13 +306,11 @@ const EN={
 "Zurich Seguros · Julio 2025": "Zurich Seguros · July 2025",
 "Correo: lmsa226127@gmail.com": "Email: lmsa226127@gmail.com",
 "Teléfono: 315 152 2227": "Phone: 315 152 2227",
-"Descargar hoja de vida (PDF)": "Download resume (PDF)"
 };
 /* Frases que se escriben solas en cada idioma */
 const FR={es:['Ingeniera de Sistemas','Docente y tutora','Atención al cliente y desarrollo web'],
           en:['Systems Engineer','Teacher and tutor','Customer service and web development']};
-/* Archivos de la hoja de vida: guarda tus dos PDF con estos nombres junto a index.html */
-const CV={es:'hoja-de-vida.pdf',en:'resume-en.pdf'};
+
 
 const nodes=[],tw=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
 while(tw.nextNode()){const n=tw.currentNode,t=n.nodeValue.trim();if(t&&Object.prototype.hasOwnProperty.call(EN,t))nodes.push([n,n.nodeValue,t])}
